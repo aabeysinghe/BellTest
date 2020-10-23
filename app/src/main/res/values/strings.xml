@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BellTest</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="load_image">Load Image</string>
+    <string name="load_second">Load Second End Point</string>
+    <string name="load_third">Load Third End Point</string>
+    <string name="alert_ok">Ok</string>
+    <string name="alert_title">Summary</string>
+    <string name="internet_connection">Please check the internet connection</string>
+    <string name="error">Error</string>
+</resources>
