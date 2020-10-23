@@ -46,7 +46,8 @@ class SecondFragment : Fragment() {
                 movieCollectionandError.scrrenList?.let {
                     recyclerview = v.findViewById(R.id.screenRecyclerView)
                     linearLayoutManager = LinearLayoutManager(requireActivity())
-                    recyclerview.adapter = SecondRecyclerAdapter(it)
+                    val adapter = SecondRecyclerAdapter(it)
+                    recyclerview.adapter = adapter
                     recyclerview.layoutManager = linearLayoutManager
 
                 }

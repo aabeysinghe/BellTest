@@ -49,7 +49,8 @@ class ThirdFragment : Fragment(), ItemClickListner {
                 moviesAndError?.imageList?.let {
                     recyclerview = v.findViewById(R.id.thirdRecyclerView)
                     gridLayoutManager = GridLayoutManager(requireActivity(), 3)
-                    recyclerview.adapter = ThirdRecyclerAdapter(it, this)
+                    val adapter = ThirdRecyclerAdapter(it,this)
+                    recyclerview.adapter = adapter
                     recyclerview.layoutManager = gridLayoutManager
 
                 }

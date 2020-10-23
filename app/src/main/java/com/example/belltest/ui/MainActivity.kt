@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), Communicator {
             getString(R.string.internet_connection)
         ) else {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.frmMain, FirstFragmentFragment())
+                .replace(R.id.frmMain, FirstFragment())
                 .commit()
         }
     }

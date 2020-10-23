@@ -21,7 +21,7 @@ import com.example.belltest.ui.util.util.Companion.showAlertDialog
 /**
  * A simple [Fragment] subclass.
  */
-class FirstFragmentFragment : Fragment() {
+class FirstFragment : Fragment() {
 
 
     private lateinit var viewModel: FirstViewModel
@@ -47,8 +47,8 @@ class FirstFragmentFragment : Fragment() {
                 errorandscreen.scrrenList?.let {
                     recyclerview = v.findViewById(R.id.mobileRecyclerView)
                     linearLayoutManager = LinearLayoutManager(requireActivity())
-                    recyclerview.adapter =
-                        FirstRecyclerAdapter(it)
+                    val adapter = FirstRecyclerAdapter(it)
+                    recyclerview.adapter = adapter
                     recyclerview.layoutManager = linearLayoutManager
 
                 }
