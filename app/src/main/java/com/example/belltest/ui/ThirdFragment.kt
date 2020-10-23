@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -38,10 +39,9 @@ class ThirdFragment : Fragment(), ItemClickListner {
         val v = inflater.inflate(R.layout.fragment_third, container, false)
         val nameSpace = arguments?.getString(NAMEESPACE)
         val alias = arguments?.getString(ALIAS)
-        val thirdViewModelFactory = ThirdViewModelFactory(nameSpace, alias)
 
-        viewModel =
-            ViewModelProviders.of(this, thirdViewModelFactory).get(ThirdViewModel::class.java)
+        val viewModel = ViewModelProvider(this, ThirdViewModelFactory(requireActivity()
+                                       .application, nameSpace, alias)).get(ThirdViewModel::class.java)
         viewModel.observeMovieData().observe(viewLifecycleOwner, Observer { moviesAndError ->
             if (moviesAndError.error != null) {
                 showAlertDialog(requireActivity(), getString(R.string.error), moviesAndError.error)

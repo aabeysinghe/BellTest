@@ -16,9 +16,9 @@ class FirstViewModel : ViewModel() {
 
     fun getSelectedTitleandScreenType(): ScreenAndError? {
         if (screens.value?.error != null) return ScreenAndError(screens.value?.error, null)
-        val d =
+        val screen =
             screens.value?.scrrenList?.filter { screen -> screen.title.toLowerCase() == "kids" && screen.screenType.toLowerCase() == "home" }
                 ?.firstOrNull()
-        return ScreenAndError(null, d)
+        return ScreenAndError(null, screen)
     }
 }

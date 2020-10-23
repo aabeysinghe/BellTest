@@ -1,11 +1,13 @@
 package com.example.belltest.ui.ui.viewmodels
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.belltest.ui.ui.pojo.MovieCollectionWithError
 import com.example.fragmentcommunicate.api.FetchData
 
-class SecondViewModel(nameSpace: String?, alias: String?) : ViewModel() {
+class SecondViewModel(application: Application, nameSpace: String?, alias: String?) : AndroidViewModel(application) {
 
     var movieCollection: LiveData<MovieCollectionWithError>
 

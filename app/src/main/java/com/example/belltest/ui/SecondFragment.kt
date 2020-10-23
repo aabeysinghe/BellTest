@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -36,9 +37,15 @@ class SecondFragment : Fragment() {
         val title = arguments?.getString(TITLE)
         val screenType = arguments?.getString(SCREEN_TYPE)
 
-        val secondViewModelFactory = SecondViewModelFactory(title, screenType)
+
+
+        val viewModel = ViewModelProvider(this, SecondViewModelFactory(requireActivity().application, title, screenType)).get(SecondViewModel::class.java)
+
+
+
+     /*   val secondViewModelFactory = SecondViewModelFactory(title, screenType)
         viewModel =
-            ViewModelProviders.of(this, secondViewModelFactory).get(SecondViewModel::class.java)
+            ViewModelProviders.of(this, secondViewModelFactory).get(SecondViewModel::class.java)*/
         viewModel.observeMovieData().observe(viewLifecycleOwner, Observer { movieCollectionandError ->
             if (movieCollectionandError.error != null) {
                 showAlertDialog(requireActivity(), getString(R.string.error), movieCollectionandError.error)
