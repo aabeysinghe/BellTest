@@ -21,5 +21,4 @@ class FirstViewModel : ViewModel() {
                 ?.firstOrNull()
         return ScreenAndError(null, d)
     }
-
 }
